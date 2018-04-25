@@ -41,10 +41,10 @@ if(isset($_POST['bjp']))
 </div>
 <div class="content">
 <div class="form-container">
-    welcome : <?php print($userRow['username']);?> </br>
-    <?php if (isset($userRow['votedfor']) && !empty($userRow['votedfor'])){
-       echo '<h2> You have already voted for ' + $userRow['votedfor'] + '</h2>';
-    }else{?>
+    welcome, <?php print($userRow['username']);?>! </br>
+    <?php if (isset($userRow['votedfor']) && !empty($userRow['votedfor'])){?>
+        <hr /><h2> You have already voted for <?php print($userRow['votedfor'])?>!</h2>
+    <?php }else{?>
     <form method="post">
     <hr /><h2>Cast your vote : </h2><hr />
         
