@@ -29,14 +29,14 @@ if(isset($_POST['bjp']))
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" type="text/css"  />
-    <title>welcome - <?php print($userRow['username']); ?></title>
+    <title>welcome, <?php print($userRow['username']); ?>!</title>
 </head>
 
 <body>
 
 <div class="header">
     <div class="left">
-        <label>Welcome to VoteCo</label>
+        
     </div>
     <div class="right">
         <label><a href="logout.php"><i class="glyphicon glyphicon-log-out"></i> logout</a></label>
@@ -49,12 +49,12 @@ if(isset($_POST['bjp']))
        echo '<h2> You have already voted for ' + $userRow['votedfor'] + '</h2>';
     }else{?>
     <form method="post">
-        <h2>Choose your candidate</h2><hr />
-        <div class="clearfix"></div><hr />
+    <hr /><h2>Cast your vote : </h2><hr />
+        
         <button type="submit" name="congress" class="btn btn-block btn-primary">
             <i class="glyphicon glyphicon-log-in"></i>&nbsp;Congress
         </button>
-        <br /><br />
+        <div class="clearfix"></div><hr />
         <button type="submit" name="bjp" class="btn btn-block btn-primary">
             <i class="glyphicon glyphicon-log-in"></i>&nbsp;BJP
         </button>
