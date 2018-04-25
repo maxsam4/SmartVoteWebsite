@@ -18,8 +18,11 @@ if(isset($_POST['congress']))
 }
 if(isset($_POST['bjp']))
 {
-    $ex = shell_exec('./simplewallet --voter ' + $userRow['username'] + ' --password $2y$10$YZT5xAVpEiLN10Z.DJ1mcO6z0eM1W4KG2AO/.7Tss/9rlqhjotudO --party VwMikWmwBtVfFvzui3Zu7FNqnL6eiPFm18dWtkF8JzdJaJ7xLT34QXZh32DYbCa9NzdTQUsUWQwx6eYMp2S1S13c2noeZgdZ9');
+    $q = './simplewallet --voter ' + $userRow['username'] + ' --password $2y$10$YZT5xAVpEiLN10Z.DJ1mcO6z0eM1W4KG2AO/.7Tss/9rlqhjotudO --party VwMikWmwBtVfFvzui3Zu7FNqnL6eiPFm18dWtkF8JzdJaJ7xLT34QXZh32DYbCa9NzdTQUsUWQwx6eYMp2S1S13c2noeZgdZ9';
+    echo $q;
+    $ex = shell_exec();
     echo $ex;
+    echo 'hello';
     $stmt = $DB_con->prepare("UPDATE voters SET votedfor = 'BJP' WHERE id=:user_id");
     $stmt->execute(array(":user_id"=>$user_id));
 }
