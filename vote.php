@@ -11,19 +11,23 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
 if(isset($_POST['congress']))
 {
-    $ex = shell_exec('./simplewallet --voter ' + $userRow['username'] + ' --password $2y$10$YZT5xAVpEiLN10Z.DJ1mcO6z0eM1W4KG2AO/.7Tss/9rlqhjotudO --party VwNZz3XdQwc6W84a66Pf86YwiBCLdVr21VnvQGvRRXCGZqk8zkUhV35JjKkp4hs9KtG8FpVsRsHVDTzcCuJDpERJ2caXfFu88');
-    echo $ex;
+    $ex = shell_exec("./simplewallet --voter " .$userRow['username']. " --password lol123 --party VwNrgk7AkhUTM59SGCkzuSjYJXqe4CW1NNfTAV4uVhFjDJ33PYsNgTPhPDPQoVG8PpS9g5wTSghYvAon9NaDdca61MT94mXbF");
     $stmt = $DB_con->prepare("UPDATE voters SET votedfor = 'Congress' WHERE id=:user_id");
     $stmt->execute(array(":user_id"=>$user_id));
+    $done = 1;
+    $stmt = $DB_con->prepare("SELECT * FROM voters WHERE id=:user_id");
+    $stmt->execute(array(":user_id"=>$user_id));
+    $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 }
 if(isset($_POST['bjp']))
 {
-    $ex = shell_exec("./simplewallet --voter " .$userRow['username']. " --password lol123 --party VwMikWmwBtVfFvzui3Zu7FNqnL6eiPFm18dWtkF8JzdJaJ7xLT34QXZh32DYbCa9NzdTQUsUWQwx6eYMp2S1S13c2noeZgdZ9");
-    echo 'hello';
-    echo $ex;
-    echo 'hello';
+    $ex = shell_exec("./simplewallet --voter " .$userRow['username']. " --password lol123 --party VwPSxjt81CfKhBFUEDtTS99u94rskDDm81D9w8Lr5s6ZWC6W24yP4vhUcH54DSDGhbC9vChF6fYSpLvrFm3rLW1H1ViodpcyX");
     $stmt = $DB_con->prepare("UPDATE voters SET votedfor = 'BJP' WHERE id=:user_id");
     $stmt->execute(array(":user_id"=>$user_id));
+    $done = 1;
+    $stmt = $DB_con->prepare("SELECT * FROM voters WHERE id=:user_id");
+    $stmt->execute(array(":user_id"=>$user_id));
+    $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 }
 
 ?>
