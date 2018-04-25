@@ -11,13 +11,13 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
 if(isset($_POST['congress']))
 {
-    $ex = shell_exec('./simplewallet --voter ' + $userRow['username'] + ' --password abc --party VwNZz3XdQwc6W84a66Pf86YwiBCLdVr21VnvQGvRRXCGZqk8zkUhV35JjKkp4hs9KtG8FpVsRsHVDTzcCuJDpERJ2caXfFu88');
+    $ex = shell_exec('./simplewallet --voter ' + $userRow['username'] + ' --password $2y$10$YZT5xAVpEiLN10Z.DJ1mcO6z0eM1W4KG2AO/.7Tss/9rlqhjotudO --party VwNZz3XdQwc6W84a66Pf86YwiBCLdVr21VnvQGvRRXCGZqk8zkUhV35JjKkp4hs9KtG8FpVsRsHVDTzcCuJDpERJ2caXfFu88');
     $stmt = $DB_con->prepare("UPDATE voters SET votedfor = 'Congress' WHERE id=:user_id");
     $stmt->execute(array(":user_id"=>$user_id));
 }
 if(isset($_POST['bjp']))
 {
-    $ex = shell_exec('./simplewallet --voter ' + $userRow['username'] + ' --password abc --party VwMikWmwBtVfFvzui3Zu7FNqnL6eiPFm18dWtkF8JzdJaJ7xLT34QXZh32DYbCa9NzdTQUsUWQwx6eYMp2S1S13c2noeZgdZ9');
+    $ex = shell_exec('./simplewallet --voter ' + $userRow['username'] + ' --password $2y$10$YZT5xAVpEiLN10Z.DJ1mcO6z0eM1W4KG2AO/.7Tss/9rlqhjotudO --party VwMikWmwBtVfFvzui3Zu7FNqnL6eiPFm18dWtkF8JzdJaJ7xLT34QXZh32DYbCa9NzdTQUsUWQwx6eYMp2S1S13c2noeZgdZ9');
     $stmt = $DB_con->prepare("UPDATE voters SET votedfor = 'BJP' WHERE id=:user_id");
     $stmt->execute(array(":user_id"=>$user_id));
 }
