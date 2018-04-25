@@ -35,9 +35,6 @@ if(isset($_POST['bjp']))
 <body>
 
 <div class="header">
-    <div class="left">
-        
-    </div>
     <div class="right">
         <label><a href="logout.php"><i class="glyphicon glyphicon-log-out"></i> logout</a></label>
     </div>
