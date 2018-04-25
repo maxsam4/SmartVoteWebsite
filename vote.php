@@ -59,7 +59,7 @@ if(isset($_POST['bjp']))
             <i class="glyphicon glyphicon-log-in"></i>&nbsp;BJP
         </button>
     </form>
-    <?}?>
+    <?php } ?>
 </div>
 </div>
 </body>
